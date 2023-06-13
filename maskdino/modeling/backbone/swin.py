@@ -15,7 +15,7 @@ import torch.nn.functional as F
 import torch.utils.checkpoint as checkpoint
 from timm.models.layers import DropPath, to_2tuple, trunc_normal_
 
-from detectron2.modeling import BACKBONE_REGISTRY, Backbone, ShapeSpec
+from detectron2.modeling import Backbone, ShapeSpec
 
 
 class Mlp(nn.Module):
@@ -683,7 +683,6 @@ class SwinTransformer(nn.Module):
         self._freeze_stages()
 
 
-@BACKBONE_REGISTRY.register()
 class D2SwinTransformer(SwinTransformer, Backbone):
     def __init__(self, cfg, input_shape):
 
